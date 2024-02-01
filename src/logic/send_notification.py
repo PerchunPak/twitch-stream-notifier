@@ -32,6 +32,7 @@ async def send_notifications(status: t.Dict[str, bool]) -> None:
 
     async with aiohttp.ClientSession() as session:
         for chat_id in config.telegram_chat_ids:
+            logger.debug(f"Sending message to {chat_id=}...")
             response = await session.post(
                 f"https://api.telegram.org/bot{config.telegram_token}/sendMessage",
                 json={"chat_id": chat_id, "text": message},

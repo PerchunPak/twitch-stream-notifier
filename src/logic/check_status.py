@@ -18,6 +18,7 @@ async def check_status() -> t.Dict[str, bool]:
 
     async with aiohttp.ClientSession() as session:
         for username in config.twitch_usernames:
+            logger.debug(f"Checking {username=}...")
             query = 'query {\n  user(login: "' + username + '") {\n    stream {\n      id\n    }\n  }\n}'
 
             async with session.post(
@@ -25,6 +26,8 @@ async def check_status() -> t.Dict[str, bool]:
                 data={"query": query, "variables": {}},
                 headers={"client-id": "kimne78kx3ncx6brgo4mv6wki5h1ko"},
             ) as response:
-                result[username] = True if (await response.json())["data"]["user"]["stream"] else False
+                answer = await response.json()
+                logger.debug(f"{answer=}")
+                result[username] = True if answer["data"]["user"]["stream"] else False
 
     return result
