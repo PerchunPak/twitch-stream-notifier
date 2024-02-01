@@ -52,6 +52,8 @@ class LoggingSection:
 class Config(metaclass=utils.Singleton):
     """The main config that holds everything in itself."""
 
+    telegram_token: str = "..."
+    twitch_usernames: t.List[str] = dataclasses.field(default_factory=lambda: ["..."])
     apykuma: ApykumaConfigSection = dataclasses.field(default_factory=ApykumaConfigSection)
     sentry: SentryConfigSection = dataclasses.field(default_factory=SentryConfigSection)
     logging: LoggingSection = dataclasses.field(default_factory=LoggingSection)
@@ -72,5 +74,12 @@ class Config(metaclass=utils.Singleton):
 
         with open(config_path, "w") as config_file:
             omegaconf.OmegaConf.save(cfg, config_file)
+
+        if cfg.twitch_usernames == ["..."]:
+            raise ValueError("You need to set up your Twitch usernames in the config file (data/config.yml)!")
+        if cfg.telegram_token == "...":
+            raise ValueError(
+                "You need to set up your Telegram token for notifications in the config file (data/config.yml)!"
+            )
 
         return t.cast(te.Self, cfg)
