@@ -11,9 +11,11 @@ async def send_notifications(status: t.Dict[str, bool]) -> None:
     message = ""
     for username, is_streaming in status.items():
         if is_streaming:
+            logger.info(f"{username} is streaming!")
             message += f"🟢 {username} is streaming!\n"
         else:
             if config.notify_on_stream_end:
+                logger.info(f"{username} stopped streaming!")
                 message += f"🔴 {username} stopped streaming.\n"
 
     if not message:

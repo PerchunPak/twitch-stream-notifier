@@ -52,6 +52,7 @@ class LoggingSection:
 class Config(metaclass=utils.Singleton):
     """The main config that holds everything in itself."""
 
+    check_interval_minutes: int = 5
     telegram_token: str = "..."
     notify_on_stream_end: bool = False
     twitch_usernames: t.List[str] = dataclasses.field(default_factory=lambda: ["..."])
