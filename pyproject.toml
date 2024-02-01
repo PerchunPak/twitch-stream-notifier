@@ -23,6 +23,8 @@ loguru = "~0.7"
 sentry-sdk = "~1.40"
 apykuma = "~1"
 
+typing_extensions = "*"
+
 
 [tool.poetry.group.make.dependencies]
 black = "~23"
