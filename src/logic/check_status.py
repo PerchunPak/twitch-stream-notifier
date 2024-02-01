@@ -23,7 +23,7 @@ async def check_status() -> t.Dict[str, bool]:
 
             async with session.post(
                 "https://gql.twitch.tv/gql",
-                data={"query": query, "variables": {}},
+                json={"query": query},
                 headers={"client-id": "kimne78kx3ncx6brgo4mv6wki5h1ko"},
             ) as response:
                 answer = await response.json()
