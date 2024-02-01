@@ -6,6 +6,7 @@ from src import utils
 from src.config import Config
 from src.logic.send_notification import send_notifications
 from src.logic.check_status import check_status
+from src.db import Database
 
 
 async def loop() -> None:
@@ -23,6 +24,7 @@ async def main() -> None:
     logger.info("Hello World!")
 
     Config()
+    Database()
     utils.start_sentry()
     await utils.start_apykuma()
 
