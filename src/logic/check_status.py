@@ -18,7 +18,7 @@ async def check_status() -> t.Dict[str, bool]:
 
     async with aiohttp.ClientSession() as session:
         for username in config.twitch_usernames:
-            query = "query {\n  user(login: \""+username+"\") {\n    stream {\n      id\n    }\n  }\n}"
+            query = 'query {\n  user(login: "' + username + '") {\n    stream {\n      id\n    }\n  }\n}'
 
             async with session.post(
                 "https://gql.twitch.tv/gql",
