@@ -4,20 +4,31 @@
 
 [![Build Status](https://github.com/PerchunPak/twitch-stream-notifier/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/PerchunPak/twitch-stream-notifier/actions?query=workflow%3Atest)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Python support versions badge (from pypi)](https://img.shields.io/pypi/pyversions/twitch-stream-notifier)](https://www.python.org/downloads/)
+[![Python support versions badge](https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/downloads/)
 
-Script to send notification when someone is starts streaming on Twitch.
+Script to send notification when someone starts streaming on Twitch.
 
-## Features
-
-- Free! We don't want any money from you!
-- Add yours!
-
-## Installing
+## How to use
 
 ```bash
-pip install twitch-stream-notifier
+docker run -d \
+  -v /path/to/data:/app/data \
+  --restart=unless-stopped \
+  perchunpak/twitch-stream-notifier:latest
 ```
+
+Then go to data folder and edit `config.yml` file.
+
+- `check_interval_minutes`: interval between checks for new streams in minutes (if you get rate limited, increase this number).
+- `telegram_token`: Telegram bot token which will send you notifications.
+- `notify_on_stream_end`: whether to send notification when stream ends.
+- `twitch_usernames`: list of streamers to check for.
+- `telegram_chat_ids`: list of user IDs to send notifications for (write to [@userinfobot](https://t.me/userinfobot) to get your ID).
+- `apykuma`: settings for [apykuma](https://pypi.com/project/apykuma/), if you don't know what is it - don't touch it.
+- `sentry`: settings for [Sentry](https://sentry.io), if you don't know what is it - don't touch it.
+- `logging`: settings for logging, keep as it is, only useful for debugging.
+
+Note that to apply changes, you need to restart the app.
 
 ## Installing for local developing
 
@@ -48,34 +59,12 @@ If you use Windows, open PowerShell with admin privileges and use:
 poetry install --no-dev
 ```
 
-### Configuration
-
-All configuration happens in `config.yml`, or with enviroment variables.
-
 ### If something is not clear
 
-You can always write me!
-
-## Example
-
-```py
-from twitch_stream_notifier.example import some_function
-
-print(some_function(3, 4))
-# => 7
-```
-
-## Updating
-
-```bash
-pip install -U twitch-stream-notifier
-```
-
-### For local development
-
-For updating, just re-download repository (do not forget save config),
-if you used `git` for downloading, just run `git pull`.
+You can always write to me!
 
 ## Thanks
 
 This project was generated with [python-template](https://github.com/PerchunPak/python-template).
+
+Code to check for Twitch stream was copied from https://stackoverflow.com/a/71289342.
