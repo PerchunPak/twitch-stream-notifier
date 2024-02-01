@@ -6,7 +6,7 @@
     "cookiecutter": {
       "project_name": "twitch-stream-notifier",
       "organization": "PerchunPak",
-      "project_description": "Simple script to send notifications when someone is streaming",
+      "project_description": "Script to send notification when someone is starts streaming on Twitch.",
       "other_languages_support": "n",
       "ukrainian_language_support": "n",
       "russian_language_support": "n",

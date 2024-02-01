@@ -6,7 +6,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Python support versions badge (from pypi)](https://img.shields.io/pypi/pyversions/twitch-stream-notifier)](https://www.python.org/downloads/)
 
-Simple script to send notifications when someone is streaming
+Script to send notification when someone is starts streaming on Twitch.
 
 ## Features
 
