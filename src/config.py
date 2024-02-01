@@ -53,7 +53,9 @@ class Config(metaclass=utils.Singleton):
     """The main config that holds everything in itself."""
 
     telegram_token: str = "..."
+    notify_on_stream_end: bool = False
     twitch_usernames: t.List[str] = dataclasses.field(default_factory=lambda: ["..."])
+    telegram_chat_ids: t.List[str] = dataclasses.field(default_factory=lambda: ["..."])
     apykuma: ApykumaConfigSection = dataclasses.field(default_factory=ApykumaConfigSection)
     sentry: SentryConfigSection = dataclasses.field(default_factory=SentryConfigSection)
     logging: LoggingSection = dataclasses.field(default_factory=LoggingSection)
