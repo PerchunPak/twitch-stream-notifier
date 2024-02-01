@@ -1,8 +1,9 @@
+import typing as t
+
 import aiohttp
 from loguru import logger
 
 from src.config import Config
-import typing as t
 from src.db import Database
 
 

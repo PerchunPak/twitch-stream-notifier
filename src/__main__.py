@@ -4,9 +4,9 @@ from loguru import logger
 
 from src import utils
 from src.config import Config
-from src.logic.send_notification import send_notifications
-from src.logic.check_status import check_status
 from src.db import Database
+from src.logic.check_status import check_status
+from src.logic.send_notification import send_notifications
 
 
 async def loop() -> None:

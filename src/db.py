@@ -1,7 +1,8 @@
-from src.utils import Singleton
-from src.config import  BASE_DIR
-import typing as t
 import json
+import typing as t
+
+from src.config import BASE_DIR
+from src.utils import Singleton
 
 
 class DatabaseContent(t.TypedDict):
