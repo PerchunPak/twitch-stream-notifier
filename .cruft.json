@@ -1,0 +1,21 @@
+{
+  "template": "https://github.com/PerchunPak/python-template",
+  "commit": "f8a6c0d7f405c09b06554189534265c7eba84eb1",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "twitch-stream-notifier",
+      "organization": "PerchunPak",
+      "project_description": "Simple script to send notifications when someone is streaming",
+      "other_languages_support": "n",
+      "ukrainian_language_support": "n",
+      "russian_language_support": "n",
+      "license": "MIT",
+      "_copy_without_render": [
+        "docs/_autoapi_templates/python"
+      ],
+      "_template": "https://github.com/PerchunPak/python-template"
+    }
+  },
+  "directory": null
+}
